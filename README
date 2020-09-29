@@ -5,13 +5,13 @@ deploy pod which serves PHP webpage with expensive computations- requires privil
     oc adm policy add-scc-to-user privileged -z default
     oc apply -f https://k8s.io/examples/application/php-apache.yaml
 
-Create pod with shell we will use to request that PHP webpage
-
-    oc run -it --rm load-generator --image=busybox /bin/sh 
-
 Create horizontal pod autoscaler to scale pod based on CPU load-
 
     oc autoscale deployment php-apache --cpu-percent=50 --min=1 --max=10
+
+Create pod with shell we will use to request that PHP webpage
+
+    oc run -it --rm load-generator --image=busybox /bin/sh 
 
 Hit enter to reach command prompt
 
