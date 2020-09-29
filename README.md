@@ -23,7 +23,7 @@ Hit enter to reach command prompt
 
 Run Commands to hit said webserver-
 
-   while true; do wget -q -O- http://php-apache; done 
+    while true; do wget -q -O- http://php-apache; done 
 
 You can view CPU metrics by watching the HPA resource, and see new pods being spun up by watching the RS
 
