@@ -1,5 +1,11 @@
 Instructions to demo HPA on OCP
 
+Optional- speed up metric collection window by adjusting 'window' field in adapter-config configmap- and then restart prometheus-adapter pods to use new configmap
+
+    oc edit cm adapter-config -n openshift-monitoring
+    oc get rs -n openshift-monitoring
+    oc delete rs -n openshift-monitoring prometheus-adapter-<hash for promethus-adapter replicaset>
+
 deploy pod which serves PHP webpage with expensive computations- requires privileged user account-
 
     oc adm policy add-scc-to-user anyuid -z default
