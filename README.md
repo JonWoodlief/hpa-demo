@@ -2,7 +2,7 @@ Instructions to demo HPA on OCP
 
 deploy pod which serves PHP webpage with expensive computations- requires privileged user account-
 
-    oc adm policy add-scc-to-user privileged -z default
+    oc adm policy add-scc-to-user anyuid -z default
     oc apply -f https://k8s.io/examples/application/php-apache.yaml
 
 Create horizontal pod autoscaler to scale pod based on CPU load-
